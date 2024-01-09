@@ -64,3 +64,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## NOTICE
+
+- **import export excel dengan meatweb excel**
+- **export pdf dengan barryvdh/dompdf**
+- **generate qrcode dengan SimpleSoftwareIO\QrCode**
