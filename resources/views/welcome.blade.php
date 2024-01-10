@@ -29,14 +29,20 @@
                 </div>
             </div>
             <div class="col-md-6">
+                @if (session('info'))
+                    <div class="alert alert-info">{{ session('info') }}</div>
+                @elseif(session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
                 @if (!empty($data))
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">nama</th>
+                                <th scope="col">prodi</th>
+                                <th scope="col">angkatan</th>
+                                <th scope="col">qrcode</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +52,8 @@
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->prodi }}</td>
                                     <td>{{ $item->angkatan }}</td>
-                                    <td> <a href="{{ route('getQRCODE', $item->id) }}" target="__blank"
-                                            class="btn btn-danger">Generate
+                                    <td><img src="{{ Storage::url($item->qrcode) }}" width="50px" alt=""></td>
+                                    <td> <a href="{{ route('getQRCODE', $item->id) }}" class="btn btn-danger">Generate
                                             QRCODE</a>
                                     </td>
                                 </tr>
@@ -56,6 +62,10 @@
                     </table>
                     <a href="{{ route('export') }}" class="btn btn-warning">EXPORT EXCEL</a>
                     <a href="{{ route('exportPDF') }}" class="btn btn-warning" target="__blank">EXPORT PDF</a>
+                    <a href="{{ route('getALLQRCODE') }}" class="btn btn-warning">Generate All
+                        QRCODE</a>
+                    <a href="{{ route('deleteAllQRCODE') }}" class="btn btn-danger">DELETE All
+                        QRCODE</a>
                 @endif
             </div>
         </div>

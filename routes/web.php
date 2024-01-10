@@ -20,3 +20,6 @@ Route::post('/import', [MahasiswaController::class, 'import'])->name('import');
 Route::get('/export-mhs', [MahasiswaController::class, 'export'])->name('export');
 Route::get('/export', [MahasiswaController::class, 'exportPDF'])->name('exportPDF');
 Route::get('/qrcode/{id}', [MahasiswaController::class, 'getQRCODE'])->name('getQRCODE');
+Route::get('/qrcodeALL', [MahasiswaController::class, 'getALLQRCODE'])->name('getALLQRCODE');
+Route::get('/deleteAllQRCODE', [MahasiswaController::class, 'deleteAllQRCODE'])->name('deleteAllQRCODE');
+Route::get('/{nama}', [MahasiswaController::class, 'update'])->name('update');
